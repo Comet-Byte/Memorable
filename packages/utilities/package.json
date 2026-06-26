@@ -1,0 +1,29 @@
+{
+  "name": "@invoicely/utilities",
+  "private": true,
+  "version": "1.0.0",
+  "description": "a package for utilities related to invocely project",
+  "repository": "https://github.com/legions-developer/invoicely",
+  "author": "legions-developer",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
+    }
+  },
+  "devDependencies": {
+    "@invoicely/eslint-config": "workspace:*",
+    "@invoicely/typescript-config": "workspace:*",
+    "@turbo/gen": "^2.9.15",
+    "@types/node": "^22.15.3",
+    "@types/react": "19.1.0",
+    "@types/react-dom": "19.1.1",
+    "eslint": "^9.25.0",
+    "typescript": "5.8.2"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}

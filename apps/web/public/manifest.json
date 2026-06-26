@@ -1,0 +1,21 @@
+{
+  "name": "Invoicely",
+  "short_name": "Invoicely",
+  "description": "Invoicely is a free invoice generator that allows you to create unlimited invoices and download them as PDFs. It is a simple and easy-to-use tool that helps you to create professional-looking invoices in minutes.",
+  "icons": [
+    {
+      "src": "/official/invoicely-logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/official/invoicely-logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff"
+}
