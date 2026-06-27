@@ -1,4 +1,5 @@
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
+import { dash } from "@better-auth/infra";
 import { env } from "@invoicely/utilities";
 import { betterAuth } from "better-auth";
 import { db } from "@invoicely/db";
@@ -42,4 +43,5 @@ export const serverAuth = betterAuth({
       ipAddressHeaders: ["cf-connecting-ip"],
     },
   },
+  plugins: [dash()],
 });
