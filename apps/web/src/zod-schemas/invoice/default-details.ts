@@ -7,19 +7,19 @@ import { z } from "zod";
 export const defaultDetailsSchema = z.object({
   companyDetails: z.object(
     {
-      name: z.string({ invalid_type_error: "Company name must be a string" }),
-      address: z.string({ invalid_type_error: "Address must be a string" }),
+      name: z.string({ error: "Company name must be a string" }),
+      address: z.string({ error: "Address must be a string" }),
       metadata: z.array(createInvoiceFieldKeyStringValuesSchema),
     },
-    { invalid_type_error: "Company details must be an object" },
+    { error: "Company details must be an object" },
   ),
   clientDetails: z.object(
     {
-      name: z.string({ invalid_type_error: "Client name must be a string" }),
-      address: z.string({ invalid_type_error: "Address must be a string" }),
+      name: z.string({ error: "Client name must be a string" }),
+      address: z.string({ error: "Address must be a string" }),
       metadata: z.array(createInvoiceFieldKeyStringValuesSchema),
     },
-    { invalid_type_error: "Client details must be an object" },
+    { error: "Client details must be an object" },
   ),
 });
 
