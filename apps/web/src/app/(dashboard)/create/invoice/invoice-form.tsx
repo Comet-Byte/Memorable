@@ -45,7 +45,7 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({ form }) => {
   });
   // Fetching Server Images
   const serverImages = useQuery({
-    ...trpc.cloudflare.listImages.queryOptions(),
+    ...trpc.storage.listImages.queryOptions(),
     enabled: !!session?.user,
   });
 

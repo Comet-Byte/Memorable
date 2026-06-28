@@ -4,12 +4,15 @@ import { env } from "@invoicely/utilities";
 export const deleteImage = async (s3: S3Client, key: string) => {
   const deleteImageResult = await s3.send(
     new DeleteObjectCommand({
-      Bucket: env.CF_R2_BUCKET_NAME,
+      Bucket: env.SUPABASE_S3_BUCKET_NAME,
       Key: key,
     }),
   );
 
-  if (deleteImageResult.$metadata.httpStatusCode === 204) {
+  // Supabase Storage / S3 DeleteObject returns 204 on success; some S3-compatible
+  // implementations return 200 — accept both.
+  const status = deleteImageResult.$metadata.httpStatusCode;
+  if (status === 204 || status === 200) {
     return true;
   }
 

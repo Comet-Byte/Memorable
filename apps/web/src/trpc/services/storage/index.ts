@@ -3,7 +3,7 @@ import { deleteImageFile } from "./deleteImage";
 import { createTRPCRouter } from "@/trpc/init";
 import { listImages } from "./listImages";
 
-export const cloudflareRouter = createTRPCRouter({
+export const storageRouter = createTRPCRouter({
   listImages: listImages,
   uploadImageFile: uploadImageFile,
   deleteImageFile: deleteImageFile,

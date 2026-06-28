@@ -3,7 +3,7 @@ import { env } from "@invoicely/utilities";
 
 export const getUserImagesCount = async (s3: S3Client, userId: string) => {
   const listObjectsV2Command = new ListObjectsV2Command({
-    Bucket: env.CF_R2_BUCKET_NAME,
+    Bucket: env.SUPABASE_S3_BUCKET_NAME,
     Prefix: `${userId}/`,
   });
 

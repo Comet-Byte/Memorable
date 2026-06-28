@@ -4,7 +4,7 @@ import { env } from "@invoicely/utilities";
 export const getUserImages = async (s3: S3Client, userId: string) => {
   const response = await s3.send(
     new ListObjectsV2Command({
-      Bucket: env.CF_R2_BUCKET_NAME,
+      Bucket: env.SUPABASE_S3_BUCKET_NAME,
       Prefix: `${userId}/`,
     }),
   );

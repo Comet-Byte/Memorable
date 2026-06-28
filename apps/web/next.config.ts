@@ -24,11 +24,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "storage.invoicely.gg", // Cloudflare R2 Storage
-      },
-      {
-        protocol: "https",
-        hostname: "assets.invoicely.gg", // Cloudflare R2 Storage
+        hostname: "**.supabase.co", // Supabase Storage (public bucket)
       },
     ],
   },

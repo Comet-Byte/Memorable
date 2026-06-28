@@ -1,8 +1,8 @@
 import { authorizedProcedure } from "@/trpc/procedures/authorizedProcedure";
 import { awsS3Middleware } from "@/trpc/middlewares/awsS3Middleware";
 import { parseCatchError } from "@/lib/neverthrow/parseCatchError";
-import { getUserImages } from "@/lib/cloudflare/r2/getUserImages";
-import { R2StorageError } from "@/lib/effect/error/trpc";
+import { getUserImages } from "@/lib/storage/getUserImages";
+import { StorageError } from "@/lib/effect/error/trpc";
 import { SUCCESS_MESSAGES } from "@/constants/issues";
 import { TRPCError } from "@trpc/server";
 import { Effect } from "effect";
@@ -12,10 +12,10 @@ export const listImages = authorizedProcedure.use(awsS3Middleware).query(({ ctx 
 
   // List Images Effect
   const listImages = Effect.gen(function* () {
-    // Fetch images from Cloudflare R2 with user-specific prefix
+    // Fetch images from storage with user-specific prefix
     const images = yield* Effect.tryPromise({
       try: () => getUserImages(ctx.s3, userId),
-      catch: (error) => new R2StorageError({ message: parseCatchError(error) }),
+      catch: (error) => new StorageError({ message: parseCatchError(error) }),
     });
 
     // Map the image objects to their keys
@@ -35,7 +35,7 @@ export const listImages = authorizedProcedure.use(awsS3Middleware).query(({ ctx 
     listImages.pipe(
       Effect.catchTags({
         // If fetching images fails, return an internal server error
-        R2StorageError: (error) =>
+        StorageError: (error) =>
           Effect.fail(new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: error.message })),
       }),
     ),

@@ -13,7 +13,7 @@ import { DefaultDetails } from "./default-details";
 import UploadLogoAsset from "./upload-logo-asset";
 import { Button } from "@/components/ui/button";
 import { useSession } from "@/lib/client-auth";
-import { R2_PUBLIC_URL } from "@/constants";
+import { STORAGE_PUBLIC_URL } from "@/constants";
 import { useTRPC } from "@/trpc/client";
 import Image from "next/image";
 import { toast } from "sonner";
@@ -50,7 +50,7 @@ const AssetsPage = () => {
 
   //   Fetch images from server
   const images = useQuery({
-    ...trpc.cloudflare.listImages.queryOptions(),
+    ...trpc.storage.listImages.queryOptions(),
     enabled: !!session?.user,
   });
 
@@ -62,14 +62,14 @@ const AssetsPage = () => {
 
   //   Delete image from server
   const deleteServerImageMutation = useMutation({
-    ...trpc.cloudflare.deleteImageFile.mutationOptions(),
+    ...trpc.storage.deleteImageFile.mutationOptions(),
     onSuccess: () => {
       toast.success(SUCCESS_MESSAGES.TOAST_DEFAULT_TITLE, {
         description: SUCCESS_MESSAGES.IMAGE_DELETED,
       });
 
       // Invalidate queries
-      queryClient.invalidateQueries({ queryKey: trpc.cloudflare.listImages.queryKey() });
+      queryClient.invalidateQueries({ queryKey: trpc.storage.listImages.queryKey() });
     },
     onError: (error) => {
       toast.error(ERROR_MESSAGES.TOAST_DEFAULT_TITLE, {
@@ -189,7 +189,7 @@ const AssetsPage = () => {
                             <TrashIcon />
                           </Button>
                           <Image
-                            src={`${R2_PUBLIC_URL}/${image}`}
+                            src={`${STORAGE_PUBLIC_URL}/${image}`}
                             alt={image}
                             width={200}
                             height={200}

@@ -4,11 +4,11 @@ import { middleware } from "@/trpc/init";
 
 export const awsS3Middleware = middleware(async function awsS3Middleware(options) {
   const s3 = new S3Client({
-    region: "auto",
-    endpoint: env.CF_R2_ENDPOINT,
+    region: env.SUPABASE_S3_REGION,
+    endpoint: env.SUPABASE_S3_ENDPOINT,
     credentials: {
-      accessKeyId: env.CF_R2_ACCESS_KEY_ID,
-      secretAccessKey: env.CF_R2_SECRET_ACCESS_KEY,
+      accessKeyId: env.SUPABASE_S3_ACCESS_KEY_ID,
+      secretAccessKey: env.SUPABASE_S3_SECRET_ACCESS_KEY,
     },
   });
 

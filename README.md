@@ -166,12 +166,14 @@ BETTER_AUTH_URL="http://localhost:3000"
 GOOGLE_CLIENT_ID="your-google-client-id"
 GOOGLE_CLIENT_SECRET="your-google-client-secret"
 
-# Cloudflare R2 Storage
-CF_R2_ENDPOINT="your-r2-endpoint"
-CF_R2_ACCESS_KEY_ID="your-access-key"
-CF_R2_SECRET_ACCESS_KEY="your-secret-key"
-CF_R2_BUCKET_NAME="your-bucket-name"
-CF_R2_PUBLIC_DOMAIN="your-public-domain"
+# Supabase Storage (S3-compatible)
+SUPABASE_S3_ENDPOINT="https://<project-ref>.supabase.co/storage/v1/s3"
+SUPABASE_S3_REGION="your-project-region"
+SUPABASE_S3_ACCESS_KEY_ID="your-access-key"
+SUPABASE_S3_SECRET_ACCESS_KEY="your-secret-key"
+SUPABASE_S3_BUCKET_NAME="your-bucket-name"
+SUPABASE_S3_PUBLIC_DOMAIN="https://<project-ref>.supabase.co/storage/v1/object/public/<bucket-name>"
+NEXT_PUBLIC_STORAGE_PUBLIC_DOMAIN="https://<project-ref>.supabase.co/storage/v1/object/public/<bucket-name>"
 
 # Analytics
 NEXT_PUBLIC_POSTHOG_HOST="your-posthog-host"
@@ -235,7 +237,7 @@ yarn lint             # Lint the web app
 ### Variables and Functions
 
 - **Variables**: Use camelCase (e.g., `userName`, `isLoading`, `hasError`)
-- **Constants**: Use SCREAMING_SNAKE_CASE (e.g., `R2_PUBLIC_URL`, `TOAST_OPTIONS`)
+- **Constants**: Use SCREAMING_SNAKE_CASE (e.g., `STORAGE_PUBLIC_URL`, `TOAST_OPTIONS`)
 - **Functions**: Use camelCase with descriptive verbs (e.g., `createInvoice`, `validateEmail`)
 - **Booleans**: Prefix with auxiliary verbs (e.g., `isLoading`, `hasPermission`, `canEdit`)
 

@@ -17,13 +17,13 @@ const UploadLogoAsset = ({ disableIcon = false, type }: { disableIcon?: boolean;
   const { data: session } = useSession();
 
   const uploadImage = useMutation({
-    ...trpc.cloudflare.uploadImageFile.mutationOptions(),
+    ...trpc.storage.uploadImageFile.mutationOptions(),
     onSuccess: () => {
       toast.success(SUCCESS_MESSAGES.TOAST_DEFAULT_TITLE, {
         description: SUCCESS_MESSAGES.IMAGE_UPLOADED,
       });
 
-      queryClient.invalidateQueries({ queryKey: trpc.cloudflare.listImages.queryKey() });
+      queryClient.invalidateQueries({ queryKey: trpc.storage.listImages.queryKey() });
     },
     onError: (error) => {
       toast.error(ERROR_MESSAGES.TOAST_DEFAULT_TITLE, {

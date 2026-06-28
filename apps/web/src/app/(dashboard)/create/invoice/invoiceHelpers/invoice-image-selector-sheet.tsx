@@ -10,7 +10,7 @@ import EmptySection from "@/components/ui/icon-placeholder";
 import { InvoiceImageType } from "@/types/common/invoice";
 import { IDBImage } from "@/types/indexdb/invoice";
 import { useParams } from "next/navigation";
-import { R2_PUBLIC_URL } from "@/constants";
+import { STORAGE_PUBLIC_URL } from "@/constants";
 import { AuthUser } from "@/types/auth";
 import { useState } from "react";
 import Image from "next/image";
@@ -41,7 +41,7 @@ export const InvoiceImageSelectorSheet = ({
 
   const handleImageSelect = (image: string, type: "server" | "local") => {
     if (type === "server") {
-      onUrlChange(`${R2_PUBLIC_URL}/${image}`);
+      onUrlChange(`${STORAGE_PUBLIC_URL}/${image}`);
       setSheetOpen(false);
     } else {
       onBase64Change(image);
@@ -86,7 +86,7 @@ export const InvoiceImageSelectorSheet = ({
                       onClick={() => handleImageSelect(image, "server")}
                     >
                       <Image
-                        src={`${R2_PUBLIC_URL}/${image}`}
+                        src={`${STORAGE_PUBLIC_URL}/${image}`}
                         alt={image}
                         width={200}
                         height={200}
