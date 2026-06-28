@@ -5,7 +5,7 @@ import React from "react";
 export const OneDollarStatsProvider = ({ children }: { children: React.ReactNode }) => {
   const isDevelopment = env.NODE_ENV === "development";
 
-  const isDebug = isDevelopment && { "data-debug": "invoicely.gg" };
+  const isDebug = isDevelopment && { "data-debug": "memorable" };
 
   return (
     <>

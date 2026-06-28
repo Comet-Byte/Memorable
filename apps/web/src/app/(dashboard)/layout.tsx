@@ -5,7 +5,7 @@ import { DashboardSidebar } from "@/components/layout/sidebar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = generateWebsiteMetadata({
-  title: "Invoicely | Dashboard",
+  title: "Memorable | Dashboard",
 });
 
 export default async function RootLayout({

@@ -9,7 +9,7 @@ const BlogHeader = ({ link, label }: { link: string; label: string }) => {
     <div className="flex h-16 items-center justify-between border-b border-dashed px-4">
       <Link className="flex flex-row items-center gap-2" href={link}>
         <Image src="/official/logo-icon.png" alt="logo" width={32} height={32} />
-        <span className="instrument-serif text-xl font-semibold">Invoicely</span>
+        <span className="instrument-serif text-xl font-semibold">Memorable</span>
       </Link>
       <div className="flex flex-row items-center gap-2">
         <Link href={link}>

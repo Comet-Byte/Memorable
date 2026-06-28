@@ -1,3 +1,4 @@
+import { env } from "@invoicely/utilities";
 import { Metadata, Viewport } from "next";
 
 export const defaultWebsiteViewport: Viewport = {
@@ -9,10 +10,10 @@ export const defaultWebsiteViewport: Viewport = {
 };
 
 export const defaultWebsiteMetadata: Metadata = {
-  metadataBase: new URL("https://invoicely.gg"),
-  title: "Invoicely - Create Beautiful & Professional Invoices",
+  metadataBase: new URL(env.NEXT_PUBLIC_BASE_URL),
+  title: "Memorable - Create Beautiful & Professional Invoices",
   description:
-    "Invoicely is a simple and easy to use invoice generator where you can create beautiful and professional invoices in minutes. ~ Proudly OSS - Backed by Cloudflare OSS",
+    "Memorable is a simple and easy to use invoice generator where you can create beautiful and professional invoices in minutes.",
   icons: {
     icon: "/official/invoicely-logo.png",
   },
@@ -24,8 +25,7 @@ export const defaultWebsiteMetadata: Metadata = {
     "generate invoice",
     "invoice generator",
     "invoice",
-    "invoicely",
-    "invoicely.gg",
+    "memorable",
     "generate beautiful invoices",
     "create invoice",
     "create beautiful invoices",

@@ -20,7 +20,7 @@ const BlogFooter = () => {
       <div className="flex flex-row items-center justify-between p-6">
         <Link className="flex flex-row items-center gap-2" href={LINKS.HOME}>
           <Image src="/official/logo-icon.png" alt="logo" width={32} height={32} />
-          <span className="instrument-serif text-xl font-semibold">Invoicely</span>
+          <span className="instrument-serif text-xl font-semibold">Memorable</span>
         </Link>
         <div className="text-muted-foreground flex flex-row items-center gap-4 text-sm">
           {links.map((link) => (

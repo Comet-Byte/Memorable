@@ -9,14 +9,15 @@ export async function GET(request: NextRequest) {
   const searchParamslink = searchParams.get("link");
 
   const title = searchParamtitle ? searchParamtitle.slice(0, 100) : "Create Beautiful Invoices";
-  const link = searchParamslink ? searchParamslink : "invoicely.gg";
+  const link = searchParamslink ? searchParamslink : "memorable";
 
   try {
     return new ImageResponse(
       (
         <div tw="flex flex-col items-center justify-center h-full">
           {/* Background Image */}
-          <img src="https://assets.invoicely.gg/blog-banner.png" alt="Invoicely" width={1200} height={630} />
+          <img src="https://assets.invoicely.gg/blog-banner.png" alt="Memorable" width={1200} height={630} />
+          {/* TODO: replace with your own banner asset (e.g. /official/og-banner.png) */}
           {/* Image Content */}
           <h1
             style={{ fontFamily: "Instrument Serif" }}

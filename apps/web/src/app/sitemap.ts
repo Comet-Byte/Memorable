@@ -1,4 +1,5 @@
 import { allBlogs } from "content-collections";
+import { env } from "@invoicely/utilities";
 import { MetadataRoute } from "next";
 
 const routes = ["/", "/blog", "/assets", "/create/invoice", "/invoices"];
@@ -18,5 +19,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
 }
 
 const absoluteUrl = (path: string) => {
-  return `https://invoicely.gg${path}`;
+  return `${env.NEXT_PUBLIC_BASE_URL}${path}`;
 };

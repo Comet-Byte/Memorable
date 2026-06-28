@@ -58,7 +58,7 @@ const VercelPdf: React.FC<{ data: ZodCreateInvoiceSchema }> = ({ data }) => {
       title={`Invoice-${data.invoiceDetails.prefix}${data.invoiceDetails.serialNumber}`}
       author={data.companyDetails.name}
       creator={data.companyDetails.name}
-      producer="Invoicely"
+      producer="Memorable"
     >
       <Page
         size="A4"

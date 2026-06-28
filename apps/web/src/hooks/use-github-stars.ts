@@ -1,7 +1,5 @@
 /**
  * This hook is used to fetch the number of stars for a given repository from GitHub.
- * Created by: @legions-developer
- * For: @invoicely
  */
 
 import { useState, useEffect } from "react";

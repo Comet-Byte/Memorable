@@ -10,7 +10,7 @@ const Page = () => {
   return (
     <div className="new-container">
       <BlogHeader link={LINKS.HOME} label="Home" />
-      <BlogHero isBlogsPage title="Recent Blogs" description="Latest blogs from the Invoicely team" />
+      <BlogHero isBlogsPage title="Recent Blogs" description="Latest blogs from the Memorable team" />
       <div className="grid grid-cols-1 sm:grid-cols-2">
         {allBlogs.map((blog, idx) => (
           <BlogCard key={blog.title} blog={blog} idx={idx} length={allBlogs.length} />

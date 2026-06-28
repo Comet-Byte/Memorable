@@ -8,16 +8,16 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="flex h-16 items-center justify-between border-b border-dashed px-4">
+    <div className="bg-background/70 sticky top-0 z-50 flex h-16 items-center justify-between border-b border-dashed px-4 backdrop-blur-md">
       <Link className="flex flex-row items-center gap-2" href={LINKS.HOME}>
         <Image src="/official/logo-icon.png" alt="logo" width={32} height={32} />
-        <span className="instrument-serif text-xl font-semibold">Invoicely</span>
+        <span className="text-lg font-semibold tracking-tight">Memorable</span>
       </Link>
       <div className="flex flex-row items-center gap-3">
         <ThemeSwitch />
         <Link href={LINKS.CREATE.INVOICE}>
           <Button variant="secondary">
-            <span>Invoice It</span>
+            <span>Create invoice</span>
             <CircleOpenArrowRight className="text-muted-foreground -rotate-45" />
           </Button>
         </Link>

@@ -150,7 +150,7 @@ export type ZodCreateInvoiceSchema = z.infer<typeof createInvoiceSchema>;
 
 export const createInvoiceSchemaDefaultValues: ZodCreateInvoiceSchema = {
   companyDetails: {
-    name: "Invoicely Ltd",
+    name: "Memorable Ltd",
     address: "123 Main St, Anytown, USA",
     metadata: [],
   },

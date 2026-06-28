@@ -35,7 +35,7 @@ const CreateInvoice = () => {
 
   const defaultInvoice = {
     ...createInvoiceSchemaDefaultValues,
-    // Empty saved fields fall back to the demo defaults (e.g. "Invoicely Ltd"),
+    // Empty saved fields fall back to the demo defaults (e.g. "Memorable Ltd"),
     // so an absent or blank profile behaves like the original create flow.
     companyDetails: {
       ...defaultCompany,

@@ -3,6 +3,7 @@ import BlogHeader from "@/components/layout/marketing/blogs/blog-header";
 import BlogHero from "@/components/layout/marketing/blogs/blog-hero";
 import { getTableOfContents } from "fumadocs-core/server";
 import { allBlogs } from "content-collections";
+import { env } from "@invoicely/utilities";
 import { notFound } from "next/navigation";
 import { LINKS } from "@/constants/links";
 import { cn } from "@/lib/utils";
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: post.summary,
       images: [
         {
-          url: `https://invoicely.gg/api/og?title=${post.title}&link=${post.slug}`,
+          url: `${env.NEXT_PUBLIC_BASE_URL}/api/og?title=${post.title}&link=${post.slug}`,
           width: 1200,
           height: 630,
           alt: post.title,

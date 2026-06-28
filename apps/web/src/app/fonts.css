@@ -1,8 +1,20 @@
-/* Default Global Font will be Geist Sans */
+/* Apple San Francisco (SF) system font stack.
+   Renders as real SF on Apple devices; clean system fonts elsewhere. */
+:root {
+  --font-sf:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
 
+/* Default Global Font is the SF system stack */
 html,
 body {
-  font-family: var(--font-geist-sans);
+  font-family: var(--font-sf);
+}
+
+/* SF utility class */
+.sf {
+  font-family: var(--font-sf);
 }
 
 /* JetBrains Mono */
