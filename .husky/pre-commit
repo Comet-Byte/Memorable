@@ -1,0 +1,4 @@
+#!/bin/sh
+
+turbo run lint -- --fix
+yarn format
