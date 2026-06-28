@@ -5,7 +5,7 @@ import { admin as adminPlugin } from "better-auth/plugins";
 import { prismadb } from "@/lib/prisma";
 import { ac, admin, manager, user } from "@/lib/auth-permissions";
 import { newUserNotify } from "@/lib/new-user-notify";
-import resendHelper from "@/lib/resend";
+import { sendOtpEmail } from "@/lib/send-otp-email";
 
 const isDemo = process.env.NEXT_PUBLIC_APP_URL === "https://demo.nextcrm.io";
 
@@ -68,23 +68,11 @@ export const auth = betterAuth({
 
   plugins: [
     emailOTP({
-      sendVerificationOTP: async ({ email, otp, type }) => {
-        try {
-          const resend = await resendHelper();
-          await resend.emails.send({
-            from: `${process.env.NEXT_PUBLIC_APP_NAME} <${process.env.EMAIL_FROM}>`,
-            to: email,
-            subject: `Your verification code: ${otp}`,
-            text: `Your one-time verification code is: ${otp}\n\nThis code expires in 5 minutes.\n\nIf you did not request this, please ignore this email.`,
-          });
-        } catch (e) {
-          // In dev/test, email sending may fail — OTP is captured by testUtils plugin
-          if (process.env.NODE_ENV !== "production") {
-            console.log(`[Auth] OTP email send failed for ${email}, but captured by testUtils`);
-          } else {
-            throw e;
-          }
-        }
+      sendVerificationOTP: async ({ email, otp }) => {
+        // Send via SMTP (Google SMTP). Errors are intentionally allowed to
+        // propagate so a failed send returns an error to the client (surfaced
+        // as a toast) instead of a silent 200.
+        await sendOtpEmail({ email, otp });
       },
     }),
     // testUtils captures OTPs for E2E testing — only enabled in non-production

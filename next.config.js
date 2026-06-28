@@ -5,6 +5,10 @@ const withNextIntl = require("next-intl/plugin")(
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "standalone",
+  // Allow dev resources (HMR, client chunks) when the app is opened via
+  // 127.0.0.1 instead of localhost; otherwise Next.js blocks them and the
+  // page never hydrates (buttons become unclickable).
+  allowedDevOrigins: ["127.0.0.1", "localhost"],
   serverExternalPackages: ["pdf-parse", "pdfjs-dist"],
   images: {
     remotePatterns: [
