@@ -1,6 +1,13 @@
 import { withContentCollections } from "@content-collections/next";
 import { withSentryConfig } from "@sentry/nextjs";
+import { loadEnvConfig } from "@next/env";
 import type { NextConfig } from "next";
+import path from "node:path";
+
+// Single source of truth: load env from the monorepo root .env instead of a
+// per-app copy. Avoids drift between root .env and apps/web/.env on Windows
+// (where `ln -s` produces copies, not symlinks).
+loadEnvConfig(path.resolve(process.cwd(), "../.."), process.env.NODE_ENV !== "production");
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -25,6 +32,10 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "**.supabase.co", // Supabase Storage (public bucket)
+      },
+      {
+        protocol: "https",
+        hostname: "assets.invoicely.gg", // Static marketing assets (sponsor logos, blog banners)
       },
     ],
   },

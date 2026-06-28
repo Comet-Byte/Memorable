@@ -19,6 +19,10 @@
         "SUPABASE_S3_ACCESS_KEY_ID",
         "SUPABASE_S3_SECRET_ACCESS_KEY",
         "NEXT_PUBLIC_STORAGE_PUBLIC_DOMAIN",
+        "NEXT_PUBLIC_ENABLE_SIGNUP",
+        "GMAIL_USER",
+        "GMAIL_APP_PASSWORD",
+        "EMAIL_FROM",
         "SENTRY_AUTH_TOKEN"
       ]
     },

@@ -5850,6 +5850,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/nodemailer@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "@types/nodemailer@npm:8.0.1"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 10c0/4370ac478a6811faaa64fcf769556515c72b78c66961cde22be75bb975ce8a964cfbe5e7c0988a99250f3250faa34357c73958b019b3c63dd138ea3784442032
+  languageName: node
+  linkType: hard
+
 "@types/number-to-words@npm:^1":
   version: 1.2.3
   resolution: "@types/number-to-words@npm:1.2.3"
@@ -12071,6 +12080,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nodemailer@npm:^9.0.1":
+  version: 9.0.1
+  resolution: "nodemailer@npm:9.0.1"
+  checksum: 10c0/4213f01aa211127c1ce33243c5e45e7f831601a933d03fa864cd827b1bd5ea2782cb4b43722bee7028cbc193733d9802dad1120fe67181448eb0b7de52218a37
+  languageName: node
+  linkType: hard
+
 "nopt@npm:^8.0.0":
   version: 8.1.0
   resolution: "nopt@npm:8.1.0"
@@ -15493,6 +15509,7 @@ __metadata:
     "@trpc/tanstack-react-query": "npm:^11.17.0"
     "@types/lodash": "npm:^4"
     "@types/node": "npm:^20"
+    "@types/nodemailer": "npm:^8.0.1"
     "@types/number-to-words": "npm:^1"
     "@types/react": "npm:^19"
     "@types/react-dom": "npm:^19"
@@ -15516,6 +15533,7 @@ __metadata:
     neverthrow: "npm:^8.2.0"
     next: "npm:15.5.18"
     next-themes: "npm:^0.4.6"
+    nodemailer: "npm:^9.0.1"
     number-to-words: "npm:^1.2.4"
     posthog-js: "npm:^1.239.1"
     posthog-node: "npm:^4.17.1"
